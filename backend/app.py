@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 import pandas as pd
 import joblib
+import os
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -23,4 +24,8 @@ def predict():
     return jsonify(result)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    # Get the port from the environment variable (Render sets this automatically)
+    port = int(os.environ.get('PORT', 5000))
+    
+    # Run the Flask app, binding to all interfaces (0.0.0.0)
+    app.run(host='0.0.0.0', port=port, debug=True)
