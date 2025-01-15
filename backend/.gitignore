@@ -1,0 +1,33 @@
+# Python
+*.pyc
+*.pyo
+__pycache__
+*.pyd
+*.pdb
+*.log
+
+# Virtual environment
+venv/
+.env/
+
+# Flask-specific files
+instance/
+.pytest_cache/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Model and data files
+*.pkl
+*.csv
+
+# IDE-specific files (VS Code, PyCharm, etc.)
+.vscode/
+.idea/
+
+# Operating System files (macOS, Windows)
+.DS_Store
+Thumbs.db
+
+# Dependency directories
+node_modules/
