@@ -29,6 +29,7 @@ const RainFallPredictionForm = () => {
   });
   const [prediction, setPrediction] = useState(null);
   const [loading, setLoading] = useState(false);
+  const [predicting, setpredicting] = useState(false);
   const [error, setError] = useState(null);
   const [currentWeather, setCurrentWeather] = useState(null);
 
@@ -40,7 +41,7 @@ const RainFallPredictionForm = () => {
     e.preventDefault();
     try {
       setPrediction(null);
-      setLoading(true);
+      setpredicting(true);
       const response = await fetch(
         `${process.env.NEXT_PUBLIC_API_URL}/predict`,
         {
@@ -54,11 +55,11 @@ const RainFallPredictionForm = () => {
       const data = await response.json();
       setPrediction(data.rainfall);
       toast.success("Rainfall prediction successful.");
-      setLoading(false);
+      setpredicting(false);
     } catch (err) {
       toast.error("Failed to predict rainfall.");
       setError(err.message);
-      setLoading(false);
+      setpredicting(false);
     }
   };
 
@@ -163,8 +164,12 @@ const RainFallPredictionForm = () => {
                   </div>
                 ))}
               </div>
-              <Button type="submit" disabled={loading} className="w-full">
-                Predict Rainfall
+              <Button type="submit" disabled={predicting} className="w-full">
+                {predicting ? (
+                  <Loader2 className="animate-spin" size={22} />
+                ) : (
+                  "Predict Rainfall"
+                )}
               </Button>
             </form>
             {prediction && (
