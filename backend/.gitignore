@@ -17,9 +17,6 @@ instance/
 # Jupyter Notebook checkpoints
 .ipynb_checkpoints/
 
-# Model and data files
-*.pkl
-*.csv
 
 # IDE-specific files (VS Code, PyCharm, etc.)
 .vscode/
