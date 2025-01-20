@@ -9,7 +9,7 @@ app = Flask(__name__)
 CORS(app)  # Enable CORS for cross-origin requests
 
 # Load the trained model
-model = joblib.load("rainfall_model.pkl")
+model = joblib.load("rainfall_svm_model.pkl")
 
 # Define prediction endpoint
 @app.route('/predict', methods=['POST'])
