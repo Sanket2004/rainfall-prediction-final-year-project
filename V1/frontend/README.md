@@ -17,10 +17,19 @@ raincheck/
 │   └── droplet.svg
 ├── src/
 │   ├── components/
-│   │   ├── Map.jsx
-│   │   ├── WeatherCard.jsx
-│   │   ├── PredictionResult.jsx
+│   │   ├── Footer.jsx
+│   │   └── HistoricalDataVisualizer.jsx
 │   │   └── LoadingState.jsx
+│   │   └── Map.jsx
+│   │   └── Navbar.jsx
+│   │   ├── PredictionResult.jsx
+│   │   └── ScrollToTop.jsx
+│   │   ├── WeatherCard.jsx
+│   ├── pages/
+│   │   ├── Map.jsx
+│   │   ├── HistoricalData.jsx
+│   │   ├── HomePage.jsx
+│   │   └── PredictionPage.jsx
 │   ├── App.jsx
 │   ├── main.jsx
 │   └── index.css
@@ -42,7 +51,7 @@ cd raincheck
 2. **Install dependencies**
 
 ```bash
-npm install leaflet lucide-react
+npm install leaflet lucide-react react-router-dom react-select recharts
 npm install -D tailwindcss postcss autoprefixer
 npx tailwindcss init -p
 ```
@@ -65,7 +74,7 @@ const OPENWEATHER_API_KEY = 'YOUR_OPENWEATHER_API_KEY';
 With your actual OpenWeather API key:
 
 ```javascript
-const OPENWEATHER_API_KEY = '1234567890abcdef1234567890abcdef';
+const OPENWEATHER_API_KEY = '1234567890abcdef';
 ```
 
 5. **Make sure your Flask backend is running**
